@@ -1,0 +1,41 @@
+{{ with merge (data `static/templates/defaults.toml`) . }}
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-RU" lang="ru">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ .treeroot }}favicon.ico">
+  <title>{{ .title }}</title>
+  <meta name="title" content="{{ .title }}" />
+  <meta name="description" content="{{ .description }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="{{ .keywords }}" />
+  <link rel="stylesheet" href="{{ .treeroot }}static/style.css" />
+  {{ block `head` . }}
+  {{ end }}
+</head>
+<body class="{{ .class }}">
+<main class="container">
+  {{ block `hero` . }}
+  <nav class="navbar">
+    <div class="navbar-brand">
+      {{ if eq .locale `ru` }}
+      <a class="navbar-item" href="{{ .treeroot }}ru/index.html">Главная</a>
+      <a class="navbar-item" href="{{ .treeroot }}ru/about.html">О Нас</a>
+      <a class="navbar-item" href="{{ .treeroot }}ru/sermons.html">Проповеди</a>
+      <a class="navbar-item" href="{{ .treeroot }}ru/contact.html">Контакты</a>
+      {{ else }}
+      <a class="navbar-item" href="{{ .treeroot }}index.html">Home</a>
+      <a class="navbar-item" href="{{ .treeroot }}en/about.html">About</a>
+      <a class="navbar-item" href="{{ .treeroot }}en/sermons.html">Sermons</a>
+      <a class="navbar-item" href="{{ .treeroot }}en/contact.html">Contact</a>
+      {{ end}}
+    </div>
+  </nav>
+  {{ end }}
+{{ block `main` . }}
+  <section class="content">
+    {{ .content }}
+  </section>
+{{ end }}
+</main>
+</body></html>
+{{ end }}

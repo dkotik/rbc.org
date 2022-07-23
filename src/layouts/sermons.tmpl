@@ -1,0 +1,29 @@
+{{ define `main` }}
+<section class="content">
+{{ .content }}
+
+<br />
+<div class="videos tile is-ancestor is-vertical">
+    <div class="tile is-parent">
+    {{ range $i, $_ := youtubechannel `UCS-jtPdMwPTdjBLkQwjtzPA` }}
+        {{ if lt $i 9 }}
+        <a href="{{ .url }}" target="_blank" class="tile is-child is-4">
+        <figure>
+            <img src="{{ .thumbnail }}" />
+            <figcaption>{{ .title }} (см. {{ .views }})</figcaption>
+        </figure>
+        </a>
+        {{ if zeromod $i 3 }}
+        </div><div class="tile is-parent">
+        {{ end }}
+        {{ end }}
+    {{ else }}
+        Видео не доступно.
+    {{ end }}
+    </div>
+    <a class="button" target="_blank" href="https://www.youtube.com/channel/UCS-jtPdMwPTdjBLkQwjtzPA/videos">
+      {{ if eq .locale `ru` }}Ещё{{ else }}More{{ end }}
+    </a>
+</div>
+</section>
+{{ end }}
