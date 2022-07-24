@@ -6,7 +6,7 @@ setup: |
 
   // [index].md matches /ru/index.html that default router conflates to /ru.html
   export function getStaticPaths() {
-    return [{params: {index: "1"}}]
+      return [{params: {index: "index"}}]
   }
 ---
 
