@@ -55,8 +55,9 @@
                 done = true;
             })
             .catch((e) => {
+                console.log(e);
                 // handle timeout?
-                error = "Connection failed!"; // TODO: localize
+                error = `Connection failed! Reason: ${e}`; // TODO: localize
             })
             .finally(() => {
                 busy = false;
