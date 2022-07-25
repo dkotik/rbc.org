@@ -48,11 +48,15 @@
         })
             .then((response) => response.json())
             .then((data) => {
+                if (data.Error) {
+                    error = data.Error;
+                    return;
+                }
                 done = true;
             })
             .catch((e) => {
                 // handle timeout?
-                error = trans.error;
+                error = "Connection failed!"; // TODO: localize
             })
             .finally(() => {
                 busy = false;
