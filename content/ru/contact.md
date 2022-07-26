@@ -1,6 +1,5 @@
 ---
-title: "РБЦ: Контакты"
-layout: "@layouts/default.astro"
+title: "Контакты"
 setup: |
   import ContactForm from "@components/contact-form.svelte";
 ---

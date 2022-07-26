@@ -1,20 +1,14 @@
 ---
-title: Русская Библейская Церковь
-layout: "@layouts/default.astro"
+title: Russian Bible Church
 setup: |
-  import {en} from '../../layouts/data.mjs'
-
-  // [index].md matches /ru/index.html that default router conflates to /ru.html
-  export function getStaticPaths() {
-      return [{params: {index: "index"}}]
-  }
+  import { address } from '../contact.mjs';
 ---
 
 ![](../img/frontpage.jpg)
 
 # Богослужения
 
-Дорогие друзья, наши богослужения продолжаются в 14:00 по воскресениям по адресу {en.address}.
+Дорогие друзья, наши богослужения продолжаются в 14:00 по воскресениям по адресу { address }.
 
 # Мы приглашаем вас
 

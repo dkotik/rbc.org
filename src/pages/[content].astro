@@ -1,0 +1,28 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+
+export async function getStaticPaths () {
+  const regexp = /(\w[\w\-]*\w)\.md$/;
+  return (await Astro.glob('../../content/en/*.md'))
+    .filter((page) => !page.frontmatter.draft) // skip drafts
+    .map(page => {
+      let m = page.file.match(regexp);
+      if (!m) throw Error(`path ${page.file} did not match a markdown file path pattern`);
+      return {
+          params: {content: m[1]},
+          props: { page }
+      }
+  });
+}
+
+// const { slug } = Astro.params;
+const { Content, frontmatter } = Astro.props.page;
+---
+<DefaultLayout
+    locale="en"
+    title={frontmatter.title}
+    description={frontmatter.description}
+    class={frontmatter.class}
+>
+    <Content />
+</DefaultLayout>

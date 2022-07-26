@@ -1,17 +1,16 @@
 ---
-layout: "@layouts/default.astro"
 title: Russian Bible Church
 setup: |
-  import {en} from '../layouts/data.mjs'
+  import { address } from '../contact.mjs';
 ---
 
-![](img/frontpage.jpg)
+<img src="/img/frontpage.jpg" alt="Services" />
 
 # Services
 
 Every Sunday afternoon a number of Russian-speaking Christian families meet for a time of Christian worship, prayer and fellowship. RBC observes the Lord’s Supper every first Sunday of the new month, unless announced otherwise.
 
-We warmly invite you to join our **2pm Sunday** service in Russian language at **{en.address}**.
+We warmly invite you to join our **2pm Sunday** service in Russian language at **{address}**.
 
 # We Warmly Invite You
 

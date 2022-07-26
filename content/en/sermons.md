@@ -1,6 +1,5 @@
 ---
-title: "RBC: Sermons"
-layout: "@layouts/default.astro"
+title: "Sermons"
 setup: |
   import YoutubeGrid from "@components/youtube-grid.svelte";
   import LoadVideos from "@components/youtube-data.mjs";

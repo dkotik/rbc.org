@@ -1,6 +1,5 @@
 ---
-title: "РБЦ: О нас"
-layout: "@layouts/default.astro"
+title: "О нас"
 ---
 
 ![](/img/services.jpg)

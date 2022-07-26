@@ -1,0 +1,11 @@
+{
+  "title": "Russian Bible Church",
+  "title-prefix": "RBC",
+  "description": "Worshipping community in Frisco, TX.",
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "sermons": "Sermons",
+    "contact": "Contact"
+  }
+}

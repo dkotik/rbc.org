@@ -2,6 +2,9 @@
 
 Built using `astro.build` static site generator.
 
+- [ ] Get an HTTPS certificate for .com redirect.
+- [ ] Use `import i18next, { t } from "i18next";` to translate contact form.
+
 ## DNS Configuration
 
 Old A record pointed to `195.201.40.193`.
@@ -13,7 +16,7 @@ Old A record pointed to `195.201.40.193`.
   185.199.110.153
   185.199.111.153
   ```
-- **russianbiblechurch.org AAA** Record pointing to Github servers IPv6 set
+- **russianbiblechurch.org AAAA** Record pointing to Github servers IPv6 set
   ```
   2606:50c0:8000::153
   2606:50c0:8001::153

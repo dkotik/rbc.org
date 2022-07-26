@@ -1,6 +1,6 @@
 {
-  "name": "@example/minimal",
-  "version": "0.0.1",
+  "name": "russianbiblechurch.org",
+  "version": "0.0.7",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -9,12 +9,14 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^0.2.6",
     "@astrojs/svelte": "^0.4.1",
     "astro": "^1.0.0-beta.73",
+    "astro-compress": "^0.0.14",
+    "astro-i18next": "^1.0.0-beta.3",
+    "astro-robots-txt": "^0.3.7",
+    "fast-xml-parser": "^4.0.9",
     "sass": "^1.53.0",
     "svelte": "^3.49.0"
-  },
-  "dependencies": {
-    "fast-xml-parser": "^4.0.9"
   }
 }

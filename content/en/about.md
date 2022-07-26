@@ -1,13 +1,12 @@
 ---
-title: "RBC: About"
-layout: "@layouts/default.astro"
+title: "About"
 ---
 
 ![](/img/services.jpg)
 
 # Our Mission
 
-The Mission of Russian Bible Church is to preach the gospel of salvation through faith in the Lord Jesus Christ to all people, and particularly to Russian-speaking, to worship God in spirit and in truth, to study the Bibly systematically, to understand the Scriptures broadly and to apply the Word of God inteligintly in order to be effective disciples of Christ who reflect the character of their Lord in their Christian life and service.
+The Mission of Russian Bible Church is to preach the gospel of salvation through faith in the Lord Jesus Christ to all people, and particularly to Russian-speaking, to worship God in spirit and in truth, to study the Bible systematically, to understand the Scriptures broadly and to apply the Word of God intelligently in order to be effective disciples of Christ who reflect the character of their Lord in their Christian life and service.
 
 <a title="Doctrinal Statement" href="ru/doctrine.html">Doctrinal Statement can be accessed here.</a>
 

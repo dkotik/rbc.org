@@ -1,7 +1,5 @@
 ---
 title: Вероучение
-layout: "@layouts/default.astro"
-locale: ru
 ---
 
 <small>(Даллас, Техас, США)</small>

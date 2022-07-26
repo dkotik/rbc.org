@@ -1,6 +1,5 @@
 ---
-title: "РБЦ: Проповеди"
-layout: "@layouts/default.astro"
+title: "Проповеди"
 setup: |
   import YoutubeGrid from "@components/youtube-grid.svelte";
   import LoadVideos from "@components/youtube-data.mjs";
