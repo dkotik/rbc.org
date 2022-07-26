@@ -3,15 +3,20 @@ import svelte from "@astrojs/svelte";
 import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
-import astroI18next from "astro-i18next";
+import astroI18next from "astro-i18next"; // const target = "docs";
+// https://astro.build/config
+// legacy: { // this may be required for ESM import to work in regular markdown
+//     astroFlavoredMarkdown: true,
+// },
 
-const target = "docs";
+import mdx from "@astrojs/mdx";
+import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://russianbiblechurch.org",
   // base: '/docs',
-  outDir: target,
+  // outDir: target,
   publicDir: "src/public",
   // trailingSlash: "never",
   server: {
@@ -28,24 +33,25 @@ export default defineConfig({
     astroI18next({
       baseLanguage: "en",
       i18next: {
-        debug: true, // convenient during development to check for missing keys
-        defaultNS: "common", // translation keys will be retrieved in the common.json file by default
+        debug: true,
+        // convenient during development to check for missing keys
+        defaultNS: "common",
+        // translation keys will be retrieved in the common.json file by default
         supportedLngs: ["en", "ru"],
-        resourcesPath: "src/locales"
-        // resourcesPath 	?string (src/resources/locales/) 	The path to your translation files
+        resourcesPath: "src/locales" // resourcesPath 	?string (src/resources/locales/) 	The path to your translation files
       }
     }),
     compress({
-      path: target
+      // path: target
       // logger: 0, // default 2
-      // css: false,
-      // html: false,
+      css: false // html: false,
       // js: false,
       // img: false,
       // svg: false
     }),
     robotsTxt({
-      sitemapBaseFileName: "sitemap-index", // default 'sitemap-index'
+      sitemapBaseFileName: "sitemap-index",
+      // default 'sitemap-index'
       policy: [
         // https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme
         {
@@ -64,25 +70,31 @@ export default defineConfig({
           console.warn(" ! [SKIP] Skipped in sitemap:", item.url);
           return undefined;
         }
+
         if (/^https\:\/\/russianbiblechurch\.org\/.*\/$/.test(item.url)) {
           // ends with slash, but must end in .html
           item.url = item.url.substr(0, item.url.length - 1) + ".html";
-        }
-        // console.log(item.url);
+        } // console.log(item.url);
+
         return item;
       },
+
       i18n: {
         entryLimit: 10000,
         changefreq: "weekly",
         priority: 0.7,
         // lastmod: new Date("2022-02-24"),
-        defaultLocale: "en", // All urls that don't contain `es` or `fr` after `site` will be treated as default locale, i.e. `en`
+        defaultLocale: "en",
+        // All urls that don't contain `es` or `fr` after `site` will be treated as default locale, i.e. `en`
         locales: {
-          en: "en-US", // The `defaultLocale` value must present in `locales` keys
+          en: "en-US",
+          // The `defaultLocale` value must present in `locales` keys
           ru: "ru-RU"
         }
       }
-    })
+    }),
+    mdx(),
+    image()
   ],
   output: "static"
 });
