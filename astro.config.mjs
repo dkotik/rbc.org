@@ -43,7 +43,7 @@ export default defineConfig({
       }
     }),
     compress({
-      path: target
+      path: target,
       // logger: 0, // default 2
       css: false // html: false,
       // js: false,
