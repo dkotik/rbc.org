@@ -4,7 +4,7 @@ import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import astroI18next from "astro-i18next";
-const target = "docs";
+// const target = "docs";
 // https://astro.build/config
 // legacy: { // this may be required for ESM import to work in regular markdown
 //     astroFlavoredMarkdown: true,
@@ -17,7 +17,7 @@ import image from "@astrojs/image";
 export default defineConfig({
   site: "https://russianbiblechurch.org",
   // base: '/docs',
-  outDir: target,
+  // outDir: target,
   publicDir: "src/public",
   // trailingSlash: "never",
   server: {
@@ -43,7 +43,7 @@ export default defineConfig({
       }
     }),
     compress({
-      path: target,
+      // path: target,
       // logger: 0, // default 2
       css: false // html: false,
       // js: false,
