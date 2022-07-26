@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /assets/
-Allow: /
-Crawl-delay: 10
-Sitemap: https://russianbiblechurch.org/sitemap-index.xml
