@@ -3,25 +3,32 @@ import { HeadHrefLangs } from "astro-i18next/components";
 import { localizePath } from "astro-i18next";
 import i18next, { t } from "i18next";
 import '../styles/default.sass';
-import { phone, address, today } from '../../content/contact.mjs';
+import { phone, address, today } from '@content/contact.mjs';
 
-const { title, description, class, locale } = Astro.props;
-i18next.changeLanguage(locale || "en");
+// const { title, description, class, locale } = Astro.props;
+i18next.changeLanguage(Astro.props.locale || "en");
+const title = Astro.props.title
+    ? t("title-prefix") + ": " + Astro.props.title
+    : t("title");
+const description = Astro.props.description || t("description");
+const keywords = Astro.props.keywords || t("keywords");
 ---
 <html>
   <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
-    <title>{ title
-        ? t("title-prefix") + " " + title
-        : t("title")}</title>
-    <meta name="description" content={t("description")}/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{ title }</title>
+    <meta name="title" content="{ title }" />
+    <meta name="description" content={ description }/>
+    <meta name="keywords" content={ keywords } />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   </head>
-  <body class="default">
+  <body class={Astro.props.class}>
     <main class="container">
         <div id="logo">
           <div id="lang">
-            { locale === "ru"
+            { Astro.props.locale === "ru"
                 ? <a href="/index.html">🇺🇸</a>
                 : <a href="/ru/index.html">🇷🇺</a>
             }
@@ -47,7 +54,6 @@ i18next.changeLanguage(locale || "en");
             </section>
         </slot>
     </footer>
-
   </body>
 </html>
 

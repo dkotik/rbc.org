@@ -1,5 +1,5 @@
 default:
 	npm run dev
-deploy:
+build:
 	npm run build
-	git push
+	rm -rf docs/ru.html
