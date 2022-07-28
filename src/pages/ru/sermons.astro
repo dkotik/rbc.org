@@ -1,0 +1,17 @@
+---
+import DefaultLayout from "@layouts/default.astro";
+import Content, {frontmatter} from "@content/en/sermons.mdx";
+import LoadVideos from "@components/youtube-data.mjs";
+import YoutubeGrid from "@components/youtube-grid.svelte";
+
+const feed = await LoadVideos("UCS-jtPdMwPTdjBLkQwjtzPA")
+---
+<DefaultLayout
+    locale="en"
+    title={frontmatter?.title}
+    description={frontmatter?.description}
+    class={frontmatter?.class}
+>
+    <Content />
+    <YoutubeGrid videoFeed={feed} />
+</DefaultLayout>

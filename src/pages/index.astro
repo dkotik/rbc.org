@@ -1,12 +1,12 @@
 ---
 import DefaultLayout from "@layouts/default.astro";
-import { Content, frontmatter } from "@content/en/index.md"
+import Content, {frontmatter} from "@content/en/index.mdx";
 ---
 <DefaultLayout
     locale="en"
-    title={frontmatter.title}
-    description={frontmatter.description}
-    class={frontmatter.class}
+    title={frontmatter?.title}
+    description={frontmatter?.description}
+    class={frontmatter?.class}
 >
     <Content />
 </DefaultLayout>
