@@ -1,13 +1,13 @@
 ---
 import { HeadHrefLangs } from "astro-i18next/components";
-import { localizePath } from "astro-i18next";
 import i18next, { t } from "i18next";
+import Navigation from "./navigation.astro";
 import '../styles/default.sass';
 import config from '@content/configuration.json';
 let { phone, address } = config;
 
-// const { title, description, class, locale } = Astro.props;
-i18next.changeLanguage(Astro.props.locale || "en");
+const locale = /^\/ru\//.test(Astro.url.pathname) ? "ru" : "en";
+i18next.changeLanguage(locale);
 const title = Astro.props.title
     ? t("title-prefix") + ": " + Astro.props.title
     : t("title");
@@ -29,21 +29,14 @@ const keywords = Astro.props.keywords || t("keywords");
     <main class="container">
         <div id="logo">
           <div id="lang">
-            { Astro.props.locale === "ru"
+            { locale === "ru"
                 ? <a href="/index.html">🇺🇸</a>
                 : <a href="/ru/index.html">🇷🇺</a>
             }
           </div>
         </div>
         <slot name="hero" />
-        <nav class="navbar">
-          <div class="navbar-brand">
-            <a class="navbar-item" href={localizePath("/index.html")}>{t("menu.home")}</a>
-            <a class="navbar-item" href={localizePath("/about.html")}>{t("menu.about")}</a>
-            <a class="navbar-item" href={localizePath("/sermons.html")}>{t("menu.sermons")}</a>
-            <a class="navbar-item" href={localizePath("/contact.html")}>{t("menu.contact")}</a>
-          </div>
-        </nav>
+        <Navigation />
         <section class="content">
           <slot />
         </section>

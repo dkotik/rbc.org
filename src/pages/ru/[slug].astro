@@ -26,7 +26,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const { Content, frontmatter } = Astro.props;
 ---
 <DefaultLayout
-    locale="ru"
     title={frontmatter?.title}
     description={frontmatter?.description}
     class={frontmatter?.class}

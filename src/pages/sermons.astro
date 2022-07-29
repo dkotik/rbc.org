@@ -8,7 +8,6 @@ import config from '@content/configuration.json';
 const feed = await LoadVideos(config.YoutubeChannel)
 ---
 <DefaultLayout
-    locale="en"
     title={frontmatter?.title}
     description={frontmatter?.description}
     class={frontmatter?.class}

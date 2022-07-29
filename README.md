@@ -3,6 +3,7 @@
 Built using `astro.build` static site generator.
 
 - [ ] Get an HTTPS certificate for .com redirect.
+- [ ] Recut CSS.
 - [ ] Use `import i18next, { t } from "i18next";` to translate contact form.
 - [ ] Github actions supports cron: see https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-first-deployment-with-github_token
 - [ ] https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
