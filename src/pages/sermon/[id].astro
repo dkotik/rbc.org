@@ -2,17 +2,14 @@
 import DefaultLayout from "@layouts/default.astro";
 import LoadVideos from "@components/youtube-data.mjs";
 import Video from "@components/youtube-video.svelte";
+import config from '@content/configuration.json';
 
 export async function getStaticPaths() {
-let videoFeed = await LoadVideos("UCS-jtPdMwPTdjBLkQwjtzPA");
-let paths = [];
-videoFeed.feed.entry.forEach(video => {
-  //console.log(video);
-  paths.push({
-    params: {id: video["yt:videoId"],},
-    props: video});
-});
-return paths;
+    return (await LoadVideos(config.YoutubeChannel))
+        .feed.entry.map(video => ({
+          params: { id: video["yt:videoId"] },
+          props: video
+        }));
 }
 
 const { id } = Astro.params;

@@ -3,7 +3,8 @@ import { HeadHrefLangs } from "astro-i18next/components";
 import { localizePath } from "astro-i18next";
 import i18next, { t } from "i18next";
 import '../styles/default.sass';
-import { phone, address, today } from '@content/contact.mjs';
+import config from '@content/configuration.json';
+let { phone, address } = config;
 
 // const { title, description, class, locale } = Astro.props;
 i18next.changeLanguage(Astro.props.locale || "en");
@@ -50,7 +51,7 @@ const keywords = Astro.props.keywords || t("keywords");
     <footer>
         <slot name="footer">
             <section class="container has-text-centered">
-                  <small>&#169; Copyright {today.getFullYear()} • {t("title")} • {address} • {phone}</small>
+                  <small>&#169; Copyright {(new Date()).getFullYear()} • {t("title")} • {address} • {phone}</small>
             </section>
         </slot>
     </footer>
