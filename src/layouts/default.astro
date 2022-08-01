@@ -1,4 +1,5 @@
 ---
+import { SEO } from "astro-seo";
 import { HeadHrefLangs } from "astro-i18next/components";
 import i18next, { t } from "i18next";
 import Navigation from "./navigation.astro";
@@ -11,17 +12,23 @@ i18next.changeLanguage(locale);
 const title = Astro.props.title
     ? t("title-prefix") + ": " + Astro.props.title
     : t("title");
-const description = Astro.props.description || t("description");
-const keywords = Astro.props.keywords || t("keywords");
 ---
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <title>{ title }</title>
-    <meta name="title" content="{ title }" />
-    <meta name="description" content={ description }/>
-    <meta name="keywords" content={ keywords } />
+    <SEO
+      title={ title }
+      description={ Astro.props.description || t("description") }
+      extend={{
+          meta: [
+            {
+                name: "keywords",
+                content: Astro.props.keywords?.join(", ")
+            }
+          ]
+      }} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   </head>
